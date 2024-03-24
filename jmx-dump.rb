@@ -1,16 +1,16 @@
 class JmxDump < Formula
-  desc "Dump JMX Metrics on command line."
+  desc "Dump JMX Metrics as JSON on command line."
   homepage "https://github.com/r4um/jmx-dump"
-  url "https://github.com/r4um/jmx-dump/releases/download/0.11.3/jmx-dump-0.11.3-standalone.jar"
-  sha256 "8640c6061e63ea9c4dc81af4808d4387de2c4c4b0c5c458f46fffd6efc90dc06"
-
+  license "EPL-1.0"
+  url "https://github.com/r4um/jmx-dump/releases/download/0.12.0/jmx-dump"
+  sha256 "81e25bc1d68b7f160305a24ab064b3308f58e4e218aa6dffca0bc7df949d6884"
+  
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*.jar"]
-    bin.write_jar_script libexec/"jmx-dump-#{version}-standalone.jar", "jmx-dump"
+    bin.install "jmx-dump"
   end
-
+  
   test do
     system "jmx-dump --help"
   end
